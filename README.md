@@ -7,10 +7,17 @@
 - Tên học phần: Phân tích và thiết kế phần mềm
 - Giảng viên: [Mai Xuân Tráng]
 
-## Project sử dụng
+## Về Project
 
-- Front-end: ReactJS
-- Back-end: NodeJS, ExpressJS
-- Database: MySQL
+- Project sử dụng
+  - Front-end: ReactJS
+  - Back-end: NodeJS, ExpressJS
+  - Database: MySQL
+
+-Tài liệu
+
+- [Mô tả đồ án] : ...
+- [Sơ đồ thực thể] : ...
+- [Cơ sở dữ liệu] : ...
 
 [mai xuân tráng]: https://www.researchgate.net/profile/Mai-Trang
