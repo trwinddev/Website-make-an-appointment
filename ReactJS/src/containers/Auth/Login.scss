@@ -1,9 +1,5 @@
 .login-background {
-  background: linear-gradient(
-    135deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
+  background: #1abc9c;
   height: 100vh;
 
   .login-container {
@@ -52,11 +48,7 @@
         border-radius: 10px;
         outline: none;
         border: none;
-        background: linear-gradient(
-          135deg,
-          rgba(34, 193, 195, 1) 0%,
-          rgba(253, 187, 45, 1) 100%
-        );
+        background: #1abc9c;
         color: #fff;
         font-size: 16px;
       }
