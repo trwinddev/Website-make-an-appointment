@@ -16,11 +16,11 @@
   - Database: MySQL
 
 - Tài liệu
-  - [Mô tả đồ án]
+  - [Mô tả đề tài]
   - [Sơ đồ thực thể]
   - [Cơ sở dữ liệu]
 
 [mai xuân tráng]: https://www.researchgate.net/profile/Mai-Trang
-[mô tả đồ án]: ...
+[mô tả đề tài]: ...
 [sơ đồ thực thể]: ...
 [cơ sở dữ liệu]: ...
