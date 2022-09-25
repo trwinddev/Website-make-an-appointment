@@ -11,7 +11,7 @@
 
 - Project sử dụng
 
-  - Front-end: ReactJS, Bootstrap 5
+  - Front-end: ReactJS, Bootstrap 4
   - Back-end: NodeJS, ExpressJS
   - Database: MySQL
 
