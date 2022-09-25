@@ -10,14 +10,17 @@
 ## Về Project
 
 - Project sử dụng
+
   - Front-end: ReactJS
   - Back-end: NodeJS, ExpressJS
   - Database: MySQL
 
--Tài liệu
-
-- [Mô tả đồ án] : ...
-- [Sơ đồ thực thể] : ...
-- [Cơ sở dữ liệu] : ...
+- Tài liệu
+  - [Mô tả đồ án]
+  - [Sơ đồ thực thể]
+  - [Cơ sở dữ liệu]
 
 [mai xuân tráng]: https://www.researchgate.net/profile/Mai-Trang
+[mô tả đồ án]: ...
+[sơ đồ thực thể]: ...
+[cơ sở dữ liệu]: ...
