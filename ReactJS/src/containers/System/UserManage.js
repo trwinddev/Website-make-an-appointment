@@ -21,11 +21,23 @@ class UserManage extends Component {
     console.log("get user from node.js: ", response);
   }
 
+  handleAddNewuser = () => {
+    alert("click me");
+  };
+
   render() {
     let arrUsers = this.state.arrUsers;
     return (
       <div className="user-container">
         <div className="title text-center">Quản lí người dùng</div>;
+        <div className="mx-3">
+          <button
+            className="btn btn-primary px-3 mb-2"
+            onClick={() => this.handleAddNewuser()}
+          >
+            <i className="fas fa-plus"></i> Add new user
+          </button>
+        </div>
         <div className="user-table mx-3">
           <table id="customers">
             <tr>
