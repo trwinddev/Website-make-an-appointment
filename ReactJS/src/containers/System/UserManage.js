@@ -2,12 +2,14 @@ import React, { Component, Fragment } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { getAllUsers } from "../../services/userService";
+import ModalUser from "./ModalUser";
 import "./UserMange.scss";
 class UserManage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       arrUsers: [],
+      isOpenModal: false,
     };
   }
 
@@ -22,13 +24,25 @@ class UserManage extends Component {
   }
 
   handleAddNewuser = () => {
-    alert("click me");
+    this.setState({
+      isOpenModal: true,
+    });
+  };
+
+  toggleUserModal = () => {
+    this.setState({
+      isOpenModal: !this.state.isOpenModal,
+    });
   };
 
   render() {
     let arrUsers = this.state.arrUsers;
     return (
       <div className="user-container">
+        <ModalUser
+          isOpen={this.state.isOpenModal}
+          toggleFromParent={this.toggleUserModal}
+        ></ModalUser>
         <div className="title text-center">Quản lí người dùng</div>;
         <div className="mx-3">
           <button

@@ -46,3 +46,17 @@ tr:nth-child(even) {
     color: red !important;
   }
 }
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+
+  .form-group {
+    width: 49%;
+  }
+}
+
+.btn-form-add {
+  padding: 5px;
+  text-align: center;
+}
