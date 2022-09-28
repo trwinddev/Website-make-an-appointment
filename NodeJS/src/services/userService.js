@@ -127,12 +127,12 @@ let createNewUser = async (data) => {
   });
 };
 
-let deleteUser = async (userId) => {
+let deleteUser = (userId) => {
   return new Promise(async (resolve, reject) => {
-    let user = await db.User.findOne({
+    let foundUser = await db.User.findOne({
       where: { id: userId },
     });
-    if (!user) {
+    if (!foundUser) {
       resolve({
         errCode: 2,
         errMessage: "User is not exist",
@@ -144,7 +144,7 @@ let deleteUser = async (userId) => {
     });
     resolve({
       errCode: 0,
-      errMessage: "User is deleted",
+      Message: "User is deleted",
     });
   });
 };

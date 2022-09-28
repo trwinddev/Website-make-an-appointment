@@ -14,7 +14,9 @@ class ModalUser extends Component {
       address: "",
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("mouting modal");
+  }
 
   toggle = () => {
     this.props.toggleFromParent();
@@ -23,12 +25,9 @@ class ModalUser extends Component {
   handleOnChangeInput = (event, id) => {
     let copyState = { ...this.state };
     copyState[id] = event.target.value;
-    this.setState(
-      {
-        ...copyState,
-      },
-      () => {}
-    );
+    this.setState({
+      ...copyState,
+    });
   };
 
   checkValidateInput = () => {
