@@ -6,6 +6,7 @@ import {
   deleteUserService,
   getAllUsers,
 } from "../../services/userService";
+import { emitter } from "../../utils/emitter";
 import ModalUser from "./ModalUser";
 import "./UserMange.scss";
 class UserManage extends Component {
@@ -52,6 +53,7 @@ class UserManage extends Component {
         this.setState({
           isOpenModal: false,
         });
+        emitter.emit("EVENT_CLEAR_MODAL_DATA");
       }
     } catch (error) {
       console.log(error);
@@ -81,7 +83,7 @@ class UserManage extends Component {
           toggleFromParent={this.toggleUserModal}
           createNewUser={this.createNewUser}
         ></ModalUser>
-        <div className="title text-center">Quản lí người dùng</div>;
+        <div className="title text-center">Quản lí người dùng</div>
         <div className="mx-3">
           <button
             className="btn btn-primary px-3 mb-2"
