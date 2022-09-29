@@ -4,9 +4,11 @@ import { connect } from "react-redux";
 import {
   createNewUserService,
   deleteUserService,
+  editUserService,
   getAllUsers,
 } from "../../services/userService";
 import { emitter } from "../../utils/emitter";
+import ModalEditUser from "./ModalEditUser";
 import ModalUser from "./ModalUser";
 import "./UserMange.scss";
 class UserManage extends Component {
@@ -15,6 +17,7 @@ class UserManage extends Component {
     this.state = {
       arrUsers: [],
       isOpenModal: false,
+      isOpenEditModal: false,
     };
   }
 
@@ -40,6 +43,12 @@ class UserManage extends Component {
   toggleUserModal = () => {
     this.setState({
       isOpenModal: !this.state.isOpenModal,
+    });
+  };
+
+  toggleUserEditModal = () => {
+    this.setState({
+      isOpenEditModal: !this.state.isOpenEditModal,
     });
   };
 
@@ -74,6 +83,31 @@ class UserManage extends Component {
     }
   };
 
+  handleEditUser = async (user) => {
+    console.log(user);
+    this.setState({
+      isOpenEditModal: true,
+      userEdit: user,
+    });
+  };
+
+  doEditUser = async (user) => {
+    try {
+      let res = await editUserService(user);
+      if (res && res.errCode === 0) {
+        this.setState({
+          isOpenEditModal: false,
+        });
+        this.getAllUsersFromReact();
+      } else {
+        alert(res.errCode);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    console.log("click save user", user);
+  };
+
   render() {
     let arrUsers = this.state.arrUsers;
     return (
@@ -83,6 +117,14 @@ class UserManage extends Component {
           toggleFromParent={this.toggleUserModal}
           createNewUser={this.createNewUser}
         ></ModalUser>
+        {this.state.isOpenEditModal && (
+          <ModalEditUser
+            isOpen={this.state.isOpenEditModal}
+            toggleFromParent={this.toggleUserEditModal}
+            currentUser={this.state.userEdit}
+            editUser={this.doEditUser}
+          ></ModalEditUser>
+        )}
         <div className="title text-center">Quản lí người dùng</div>
         <div className="mx-3">
           <button
@@ -113,7 +155,10 @@ class UserManage extends Component {
                       <td>{item.address}</td>
                       {/* <td>{item.phoneNumber}</td> */}
                       <td>
-                        <button className="btn-edit">
+                        <button
+                          className="btn-edit"
+                          onClick={() => this.handleEditUser(item)}
+                        >
                           <i className="fas fa-pencil-alt"></i>
                         </button>
                         <button
