@@ -10,12 +10,13 @@
 
     .left-content {
       width: 25%;
-      border: 1px solid green;
+
       display: flex;
       align-items: center;
 
       .header-logo {
-        background: url("../../assets/logo.svg") no-repeat center center;
+        background: url("https://resource.medpro.com.vn/static/images/medpro/web/footer_logo.svg?t=61093.900390604234")
+          no-repeat center center;
         height: 100%;
         width: 100%;
         cursor: pointer;
@@ -28,7 +29,7 @@
     }
     .center-content {
       width: 50%;
-      border: 1px solid black;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,30 +43,49 @@
     }
     .right-content {
       width: 25%;
-      border: 1px solid blue;
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     .support {
+      padding-right: 15px;
+    }
+    .language-vi {
+      cursor: pointer;
+
+      &.active {
+        span {
+          color: #00b5f1;
+        }
+      }
+    }
+    .language-en {
+      cursor: pointer;
+      margin-left: 15px;
+
+      &.active {
+        color: #00b5f1;
+      }
     }
   }
 }
 
 .home-header-banner {
-  background: url("../../assets/header-background.jpg");
+  background: url("https://bo-api.medpro.com.vn:5000/static/images/medpro/web/banner1.png?t=111111111");
   height: 600px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
 
   .content-up {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.25),
       rgba(255, 255, 255, 0.1)
     );
-    border: 1px solid black;
+
     height: 65%;
     padding-top: 15px;
 
@@ -87,7 +107,8 @@
     }
 
     .search {
-      background-color: #f7d800;
+      // background-color: #f7d800;
+      background-color: #49bce2;
       margin: 0 auto;
       padding: 12px;
       border-radius: 30px;
@@ -95,6 +116,10 @@
       justify-content: center;
       align-items: center;
       width: fit-content;
+      opacity: 0.6;
+      position: absolute;
+      top: 50%;
+      left: 50%;
 
       i {
         margin-right: 20px;
@@ -105,12 +130,14 @@
         border: none;
         outline: none;
         background-color: transparent;
+        &::placeholder {
+          color: white;
+        }
       }
     }
   }
 
   .content-down {
-    border: 1px solid red;
     height: 35%;
     display: flex;
     justify-content: center;
@@ -126,7 +153,6 @@
       justify-content: center;
       gap: 50px;
       .option-child {
-        border: 1px solid orange;
         width: 100px;
         &:hover {
           cursor: pointer;

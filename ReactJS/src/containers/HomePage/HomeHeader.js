@@ -1,21 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
+import { FormattedMessage } from "react-intl";
+import { LANGUAGES } from "../../utils";
+import { changeLanguageApp } from "../../store/actions/appActions";
 
 class HomeHeader extends Component {
+  changeLanguage = (language) => {
+    this.props.changeLanguageAppRedux(language);
+  };
   render() {
+    let language = this.props.language;
     return (
       <React.Fragment>
         <div className="home-header-container">
           <div className="home-header-content">
             <div className="left-content">
-              <i class="fas fa-bars"></i>
+              {/* <i class="fas fa-bars"></i> */}
               <div className="header-logo"></div>
             </div>
             <div className="center-content">
               <div className="child-content">
                 <div>
-                  <b>Chuyên khoa</b>
+                  <b>
+                    <FormattedMessage id="home-header.speciality" />
+                  </b>
                 </div>
                 <div className="subs-title">Tìm bác sĩ theo chuyên khoa</div>
               </div>
@@ -42,19 +51,40 @@ class HomeHeader extends Component {
               <div className="support">
                 <i className="fas fa-question-circle"></i> Hỗ trợ
               </div>
-              <div className="flag">VN</div>
+              <div
+                className={
+                  language === LANGUAGES.VI
+                    ? "language-vi active"
+                    : "language-vi"
+                }
+              >
+                <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>
+                  VN
+                </span>
+              </div>
+              <div
+                className={
+                  language === LANGUAGES.EN
+                    ? "language-en active"
+                    : "language-en"
+                }
+              >
+                <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>
+                  EN
+                </span>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="home-header-banner">
           <div className="content-up">
-            <div className="title-1">NỀN TẢNG Y TẾ</div>
-            <div className="title-2">CHĂM SÓC SỨC KHỎE TOÀN DIỆN</div>
-            <div className="search">
-              <i className="fas fa-search"></i>
-              <input type="text" placeholder="Tìm bệnh viện" />
-            </div>
+            {/* <div className="title-1">NỀN TẢNG Y TẾ</div>
+            <div className="title-2">CHĂM SÓC SỨC KHỎE TOÀN DIỆN</div> */}
+            {/* <div className="search"> */}
+            {/* <i className="fas fa-search"></i> */}
+            {/* <input type="text" placeholder="Tìm bệnh viện" /> */}
+            {/* </div> */}
           </div>
           <div className="content-down">
             <div className="options">
@@ -105,11 +135,14 @@ class HomeHeader extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    language: state.app.language,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
